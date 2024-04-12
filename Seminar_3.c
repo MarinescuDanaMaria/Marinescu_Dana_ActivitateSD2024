@@ -32,41 +32,6 @@ struct Aeroport* citireFisier(const char* numeFisier, int* nrAeroporturi) {
 		char buffer[100];
 		(*nrAeroporturi) = 0;
 		while (fgets(buffer, 99, f) != NULL) {
-		…
-[16:15, 05/03/2024] Dana Maria: #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <malloc.h>
-#include <stdlib.h>
-
-struct Aeroport {
-	int id;
-	char* nume;
-	int nrTerminale;
-};
-
-struct Aeroport* adaugareAeroport(struct Aeroport* aeroporturi, struct Aeroport aeroport, int* dimensiune) {
-	struct Aeroport* copie = (struct Aeroport*)malloc(sizeof(struct Aeroport) * ((*dimensiune) + 1));
-
-	copie[(*dimensiune)] = aeroport;
-
-	for (int i = 0; i < (*dimensiune); i++)
-		copie[i] = aeroporturi[i];
-
-	(*dimensiune)++;
-
-	return copie;
-}
-
-struct Aeroport* citireFisier(const char* numeFisier, int* nrAeroporturi) {
-	struct Aeroport* aeroporturi;
-	aeroporturi = NULL;
-
-	FILE* f = fopen(numeFisier, "r");
-
-	if (f) {
-		char buffer[100];
-		(*nrAeroporturi) = 0;
-		while (fgets(buffer, 99, f) != NULL) {
 			struct Aeroport aeroport;
 			char delimitator[] = ",\n";
 
